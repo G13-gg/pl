@@ -47,8 +47,8 @@ def main():
         # Button untuk melakukan prediksi
         if st.button('Prediksi'):
             # Load model
-            model_path = '/absolute/D:/Kuliah/S6/Studi Independen/project akhir/Bacaan Quran/Sahabat_Quran.h5'
-            #model_path = 'absolute\D:\Kuliah\S6\Studi Independen\project akhir\Bacaan Quran\Sahabat_Quran.hdf5'
+            model_path = '/absolute/D:/Kuliah/S6/Studi Independen/project akhir/Bacaan Quran/Sahabat_Quran.hdf5'
+            #model_path = 'D:\Kuliah\S6\Studi Independen\project akhir\Bacaan Quran\Sahabat_Quran.hdf5'
             if os.path.exists(model_path):
                 print("Model file found.")
             else:
