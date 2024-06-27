@@ -1,15 +1,16 @@
-import os
 import streamlit as st
 import tempfile
 import librosa
+import os
 from tensorflow.keras.models import load_model
 import numpy as np
 
 # Fungsi untuk memuat model
 @st.cache(allow_output_mutation=True)
 def load_deep_learning_model(model_path):
-    model = load_model(model_path)
-    return model
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model file not found at {model_path}")
+    return load_model(model_path)
 
 # Fungsi untuk memproses file audio MP3
 def process_audio_file(uploaded_file):
@@ -47,12 +48,7 @@ def main():
         # Button untuk melakukan prediksi
         if st.button('Prediksi'):
             # Load model
-            model_path = '/absolute/D:/Kuliah/S6/Studi Independen/project akhir/Bacaan Quran/Sahabat_Quran.hdf5'
-            #model_path = 'D:\Kuliah\S6\Studi Independen\project akhir\Bacaan Quran\Sahabat_Quran.hdf5'
-            if os.path.exists(model_path):
-                print("Model file found.")
-            else:
-                print("Model file not found. Please check the path.")
+            model_path = 'D:\Kuliah\S6\Studi Independen\project akhir\Bacaan Quran\Sahabat_Quran.hdf5'
             model = load_deep_learning_model(model_path)
 
             # Lakukan prediksi dengan model
