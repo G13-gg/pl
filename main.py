@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import tempfile
 import librosa
@@ -7,8 +8,14 @@ import numpy as np
 # Fungsi untuk memuat model
 @st.cache(allow_output_mutation=True)
 def load_deep_learning_model(model_path):
-    model = load_model(model_path)
-    return model
+    print(f"Attempting to load model from: {model_path}")
+    if os.path.exists(model_path):
+        print(f"File found: {model_path}")
+        model = load_model(model_path)
+        return model
+    else:
+        print(f"Model file not found at: {model_path}")
+        return None
 
 # Fungsi untuk memproses file audio MP3
 def process_audio_file(uploaded_file):
