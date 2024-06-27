@@ -46,7 +46,7 @@ def main():
         # Button untuk melakukan prediksi
         if st.button('Prediksi'):
             # Load model
-            model_path = 'C:\Users\Lenovo\Dekstop\git upload\pl\Sahabat_Quran.keras'  
+            model_path = 'C:\Users\Lenovo\Dekstop\git upload\pl\main.py'  
             model = load_deep_learning_model(model_path)
 
             # Lakukan prediksi dengan model
