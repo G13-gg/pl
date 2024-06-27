@@ -1,7 +1,6 @@
 import streamlit as st
 import tempfile
 import librosa
-import os
 from tensorflow.keras.models import load_model
 import numpy as np
 
